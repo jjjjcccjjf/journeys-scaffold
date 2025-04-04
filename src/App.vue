@@ -10,6 +10,7 @@ import SpecialNode from "./components/SpecialNode.vue";
 import SpecialEdge from "./components/SpecialEdge.vue";
 import DebugNode from "./components/DebugNode.vue";
 import { useLayout } from "./composables/useLayout";
+import ContactCountStartingNode from "./components/ContactCountStartingNode.vue";
 
 const { layout } = useLayout();
 
@@ -20,30 +21,30 @@ const { onConnect, addEdges } = useVueFlow();
 // these are our nodes
 const nodes = ref<Node[]>([
   // an input node, specified by using `type: 'input'`
-  {
-    id: "1",
-    type: "input",
-    position: { x: 250, y: 5 },
-    // all nodes can have a data object containing any data you want to pass to the node
-    // a label can property can be used for default nodes
-    data: { label: "Node 1" },
-  },
+  // {
+  //   id: "1",
+  //   type: "input",
+  //   position: { x: 250, y: 5 },
+  //   // all nodes can have a data object containing any data you want to pass to the node
+  //   // a label can property can be used for default nodes
+  //   data: { label: "Node 1" },
+  // },
 
-  // default node, you can omit `type: 'default'` as it's the fallback type
-  {
-    id: "2",
-    type: "default",
-    position: { x: 100, y: 100 },
-    data: { label: "Node 2" },
-  },
+  // // default node, you can omit `type: 'default'` as it's the fallback type
+  // {
+  //   id: "2",
+  //   type: "default",
+  //   position: { x: 100, y: 100 },
+  //   data: { label: "Node 2" },
+  // },
 
-  // An output node, specified by using `type: 'output'`
-  {
-    id: "3",
-    type: "output",
-    position: { x: 400, y: 200 },
-    data: { label: "Node 3" },
-  },
+  // // An output node, specified by using `type: 'output'`
+  // {
+  //   id: "3",
+  //   type: "output",
+  //   position: { x: 400, y: 200 },
+  //   data: { label: "Node 3" },
+  // },
 
   // this is a custom node
   // we set it by using a custom type name we choose, in this example `special`
@@ -66,14 +67,19 @@ const nodes = ref<Node[]>([
       type: "Node",
     },
   },
+  // {
+  //   id: "6",
+  //   type: "debug",
+  //   position: { x: 500, y: 300 },
+  //   data: {
+  //     label: "Debug Node",
+  //     type: "GraphNode",
+  //   },
+  // },
   {
-    id: "6",
-    type: "debug",
-    position: { x: 500, y: 300 },
-    data: {
-      label: "Debug Node",
-      type: "GraphNode",
-    },
+    id: "7",
+    type: "contact-count-starting",
+    position: { x: 430, y: 560 },
   },
 ]);
 
@@ -144,6 +150,10 @@ async function layoutGraph(direction: "LR" | "TB" | "RL" | "BT") {
 
       <template #node-debug="nodeProps">
         <DebugNode v-bind="nodeProps" />
+      </template>
+
+      <template #node-contact-count-starting="nodeProps">
+        <ContactCountStartingNode v-bind="nodeProps" />
       </template>
 
       <!-- bind your custom edge type to a component by using slots, slot names are always `edge-<type>` -->
