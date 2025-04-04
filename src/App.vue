@@ -23,6 +23,7 @@ const nodes = ref<Node[]>([
   // default node, you can omit `type: 'default'` as it's the fallback type
   {
     id: "2",
+    type: 'default',
     position: { x: 100, y: 100 },
     data: { label: "Node 2" },
   },
