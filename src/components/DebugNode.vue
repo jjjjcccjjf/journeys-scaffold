@@ -34,11 +34,17 @@ const y = computed(() => `${Math.round(props.position.y)}px`);
     <Handle type="target" :position="Position.Left" :id="'target-left'" />
     <Handle type="target" :position="Position.Right" :id="'target-right'" />
 
-    <pre v-if="props.data.type === 'Node'">
+    <div
+      v-if="props.data.type === 'Node'"
+      class="font-satoshi whitespace-pre-wrap w-40"
+    >
       {{ props }}
-    </pre>
-    <pre v-else-if="props.data.type === 'GraphNode'">
-        {{ graphNode }}
-    </pre>
+    </div>
+    <div
+      v-else-if="props.data.type === 'GraphNode'"
+      class="font-roboto-mono whitespace-pre-wrap"
+    >
+      {{ graphNode }}
+    </div>
   </div>
 </template>

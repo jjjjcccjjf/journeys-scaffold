@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: Satoshi;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("assets/fonts/Satoshi_Complete/Variable/Satoshi-Variable.ttf")
+    format("woff2");
+}
+
+@font-face {
+  font-family: Roboto Mono;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("assets/fonts/Roboto_Mono/Variable/RobotoMono-VariableFont_wght.ttf")
+    format("woff2");
+}
+
+@theme {
+  --font-satoshi: "Satoshi", sans-serif;
+  --font-roboto-mono: "Roboto Mono", sans-serif;
+}
